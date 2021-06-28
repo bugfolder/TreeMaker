@@ -1,0 +1,27 @@
+TreeMaker require an obsolete version gcc/g++ to compile. gcc and g++ 4.4.7 would work. 
+
+On Ubuntu 16.0.4 you can install gcc 4.4.7 like so
+
+add these lines to /etc/apt/sources.list
+
+deb http://archive.ubuntu.com/ubuntu trusty main universe
+deb http://archive.ubuntu.com/ubuntu trusty-updates main universe
+
+then run
+
+sudo apt-update
+sudo apt install gcc-4.4 g++-4.4
+
+to switch between different versions of gcc, set up update-alternatives as follows (gcc-5 is default on Ubuntu 16.04)
+
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 10 --slave /usr/bin/g++ g++ /usr/bin/g++-4.4
+
+switch between these by running
+
+sudo update-alternatives --config gcc
+
+then select the version you want.
+
+Before compiling TreeMaker, switch to gcc-4.4. Check that with
+gcc --version

@@ -1,0 +1,7 @@
+To build wxwidgets, unzip wxGTK-2.6.4
+
+cd /path/to/wxGTK-2.6.4 
+mkdir build-release && cd build-release
+../configure --enable-unicode --disable-shared --enable-monolithic --with-opengl --enable-std_iostreams --enable-std_string --with-gnomeprint --without-libtiff LIBS="-lX11 -lexpat"
+make
+
